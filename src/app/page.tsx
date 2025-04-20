@@ -77,42 +77,45 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col h-screen bg-gray-50">
+    <div className="flex flex-col h-screen bg-background">
 
       {/* Chat Header */}
-      <div className="bg-white border-b border-gray-200 p-4">
-        <CardTitle className="text-lg font-semibold">Empath AI</CardTitle>
+      <div className="bg-secondary border-b border-border p-4 shadow-sm">
+        <CardTitle className="text-lg font-semibold text-secondary-foreground">First-Steps AI Therapy</CardTitle>
       </div>
 
       {/* Chat Messages */}
       <div className="flex-1 overflow-hidden">
         <ScrollArea className="h-full">
-          <div className="p-4 flex flex-col space-y-2">
+          <div className="p-6 flex flex-col space-y-4">
             {messages.map((message, index) => (
               <div
                 key={index}
                 className={cn(
-                  "flex w-full max-w-md mb-2",
-                  message.sender === 'user' ? 'justify-end' : 'justify-start'
+                  "flex w-full max-w-2xl rounded-lg",
+                  message.sender === 'user' ? 'justify-start' : 'justify-end'
                 )}
               >
-                {message.sender === 'bot' && (
-                  <Avatar className="mr-2">
-                    <AvatarImage src={botAvatarUrl} alt="AI Avatar"/>
-                    <AvatarFallback>AI</AvatarFallback>
-                  </Avatar>
-                )}
-                <Card className={cn(
-                  "w-fit rounded-lg",
-                  message.sender === 'user' ? 'bg-blue-100 text-right' : 'bg-green-100 text-left'
-                )}>
-                  <CardContent className="p-3">{message.text}</CardContent>
-                </Card>
-                {message.sender === 'user' && (
-                  <Avatar className="ml-2">
-                    <AvatarImage src={userAvatarUrl} alt="User Avatar"/>
-                    <AvatarFallback>US</AvatarFallback>
-                  </Avatar>
+                {message.sender === 'bot' ? (
+                  <>
+                    <Avatar className="mr-3 h-10 w-10">
+                      <AvatarImage src={botAvatarUrl} alt="AI Avatar"/>
+                      <AvatarFallback>AI</AvatarFallback>
+                    </Avatar>
+                    <Card className="w-fit bg-accent text-left shadow-md">
+                      <CardContent className="p-4">{message.text}</CardContent>
+                    </Card>
+                  </>
+                ) : (
+                  <>
+                    <Card className="w-fit bg-primary text-right text-primary-foreground shadow-md">
+                      <CardContent className="p-4">{message.text}</CardContent>
+                    </Card>
+                    <Avatar className="ml-3 h-10 w-10">
+                      <AvatarImage src={userAvatarUrl} alt="User Avatar"/>
+                      <AvatarFallback>US</AvatarFallback>
+                    </Avatar>
+                  </>
                 )}
               </div>
             ))}
@@ -122,18 +125,18 @@ export default function Home() {
       </div>
 
       {/* Chat Input */}
-      <div className="bg-white border-t border-gray-200 p-4">
-        <div className="flex items-center space-x-2">
+      <div className="bg-secondary border-t border-border p-4">
+        <div className="flex items-center space-x-3">
           <Textarea
             ref={inputRef}
             value={input}
             onChange={handleInputChange}
             onKeyDown={handleInputKeyDown}
             placeholder="Type your message..."
-            className="flex-1 resize-none shadow-sm"
+            className="flex-1 resize-none shadow-sm rounded-md"
             rows={1}
           />
-          <Button onClick={handleSend} className="shadow-sm">Send</Button>
+          <Button onClick={handleSend} className="shadow-sm rounded-md">Send</Button>
         </div>
       </div>
     </div>
