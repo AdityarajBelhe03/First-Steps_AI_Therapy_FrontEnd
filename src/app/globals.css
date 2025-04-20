@@ -42,6 +42,16 @@ body {
     --chart-3: 180 60% 40%;
     --chart-4: 300 50% 70%;
     --chart-5: 60 90% 80%;
+
+    /* Updated color scheme to complement the background image */
+    --background: 220 14% 96%;
+    --foreground: 222.2 47.4% 11.2%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
   }
 
   .dark {
@@ -89,10 +99,12 @@ body {
   }
 }
 .wavy-background {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=');
   background-image: url('https://images.unsplash.com/photo-1642174641412-6955cf9a8e07?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=');
+  background-image: url('https://i.imgur.com/your-image.png');
   background-size: cover;
   background-repeat: no-repeat;
 }
+
 
 
