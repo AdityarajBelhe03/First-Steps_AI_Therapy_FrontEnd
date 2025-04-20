@@ -9,7 +9,7 @@ body {
 
 @layer base {
   :root {
-    --background: 210 30% 98%; /* Very light blue background */
+    --background: 220 20% 94%; /* Light blue background */
     --foreground: 222.2 84% 4.9%; /* Dark foreground */
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
@@ -90,8 +90,9 @@ body {
 }
 .wavy-background {
   background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=');
-  background-image: url('https://images.unsplash.com/photo-1618005198610-9ca44ca9aef8?q=80&amp;w=3870&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-image: url('https://images.unsplash.com/photo-1642174641412-6955cf9a8e07?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
   background-size: cover;
   background-repeat: no-repeat;
 }
+
 
