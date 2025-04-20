@@ -87,3 +87,9 @@ body {
     @apply bg-background text-foreground;
   }
 }
+.wavy-background {
+  background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 400" fill="none"%3E%3Cpath d="M0 133.5C240 143 480 176 720 246C960 316 1200 326 1440 262C1680 198 1920 143 1920 133.5V400H0V133.5Z" fill="%23F9FAFB"/%3E%3Cpath d="M0 0V133.5C240 143 480 176 720 246C960 316 1200 326 1440 262C1680 198 1920 143 1920 133.5V0H0Z" fill="%23FFFFFF"/%3E%3C/svg%3E');
+  background-size: 1920px auto;
+  background-repeat: no-repeat;
+}
+

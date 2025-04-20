@@ -77,7 +77,7 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col h-screen bg-background">
+    <div className="flex flex-col h-screen bg-transparent">
 
       {/* Chat Header */}
       <div className="bg-secondary border-b border-border p-4 shadow-sm">
@@ -92,12 +92,12 @@ export default function Home() {
               <div
                 key={index}
                 className={cn(
-                  "flex w-full max-w-2xl rounded-lg",
+                  "flex w-full max-w-3xl rounded-lg",
                   message.sender === 'user' ? 'justify-start' : 'justify-end'
                 )}
               >
                 {message.sender === 'bot' ? (
-                  <>
+                  <div className="flex items-start">
                     <Avatar className="mr-3 h-10 w-10">
                       <AvatarImage src={botAvatarUrl} alt="AI Avatar"/>
                       <AvatarFallback>AI</AvatarFallback>
@@ -105,9 +105,9 @@ export default function Home() {
                     <Card className="w-fit bg-accent text-left shadow-md">
                       <CardContent className="p-4">{message.text}</CardContent>
                     </Card>
-                  </>
+                  </div>
                 ) : (
-                  <>
+                  <div className="flex items-end">
                     <Card className="w-fit bg-primary text-right text-primary-foreground shadow-md">
                       <CardContent className="p-4">{message.text}</CardContent>
                     </Card>
@@ -115,7 +115,7 @@ export default function Home() {
                       <AvatarImage src={userAvatarUrl} alt="User Avatar"/>
                       <AvatarFallback>US</AvatarFallback>
                     </Avatar>
-                  </>
+                  </div>
                 )}
               </div>
             ))}
