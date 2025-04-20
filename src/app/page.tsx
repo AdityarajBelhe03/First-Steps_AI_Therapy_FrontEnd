@@ -7,6 +7,7 @@ import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
 import {Avatar, AvatarImage, AvatarFallback} from "@/components/ui/avatar";
 import {ScrollArea} from "@/components/ui/scroll-area";
 import {cn} from "@/lib/utils";
+import {generateEmpatheticResponse} from '@/ai/flows/generate-empathetic-response';
 
 const userAvatarUrl = `https://picsum.photos/id/237/36/36`;
 const botAvatarUrl = `https://picsum.photos/id/888/36/36`;
@@ -42,14 +43,26 @@ export default function Home() {
     setMessages(prevMessages => [...prevMessages, userMessage]);
     setInput('');
 
-    // Simulate AI response (replace with actual API call)
-    setTimeout(() => {
+    // Call the AI flow
+    try {
+      const aiResponse = await generateEmpatheticResponse({
+        message: input,
+        chatHistory: messages.map(m => `${m.sender}: ${m.text}`).join('\n'),
+      });
+
       const botResponse: Message = {
         sender: 'bot',
-        text: "This is a simulated empathetic response. I'm here to listen."
+        text: aiResponse.response,
       };
       setMessages(prevMessages => [...prevMessages, botResponse]);
-    }, 1000);
+    } catch (error) {
+      console.error("Failed to generate AI response:", error);
+      const botResponse: Message = {
+        sender: 'bot',
+        text: "Sorry, I'm having trouble generating a response right now. Please try again later.",
+      };
+      setMessages(prevMessages => [...prevMessages, botResponse]);
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
